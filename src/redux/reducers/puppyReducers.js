@@ -1,9 +1,6 @@
 import {actions} from '../actions/puppyActions'
 
 function puppyReducers(state = [], action) {
-    console.log("PUPPY ACTION:", action);
-    console.log("PUPPY STATE:", state);
-
     switch (action.type) {
         case actions.CREATE_PUPPY:
             return [
@@ -17,8 +14,10 @@ function puppyReducers(state = [], action) {
                 }
                 return puppy
             });
+        case actions.RECEIVE_PUPPIES:
+            return action.data;
         default:
-            return state
+            return state;
     }
 }
 

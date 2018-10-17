@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Priscilla Queen",
+    "breed": "Australian Shepherd",
+    "available": true,
+    "pictureHref": "https://pmcdeadline2.files.wordpress.com/2015/12/gollum.jpg?w=446&h=299&crop=1",
+    "id": 1
+  },
+  {
+    "name": "Prince Harry",
+    "breed": "Jack Russell Terrier",
+    "available": false,
+    "pictureHref": "",
+    "id": 2
+  },
+  {
+    "name": "Evander Holyfield",
+    "breed": "Boxer",
+    "available": true,
+    "id": 3,
+    "pictureHref": "http://funnypictures.in/wp-content/uploads/2015/01/twisted-boxer-dog-Tongue.jpg"
+  },
+  {
+    "name": "Sean Connery",
+    "breed": "Boxer",
+    "available": true,
+    "id": 3,
+    "pictureHref": "https://img.buzzfeed.com/buzzfeed-static/static/2013-11/enhanced/webdr06/30/18/enhanced-buzz-765-1385853848-0.jpg?downsize=715:*&output-format=auto&output-quality=auto"
+  }
+]

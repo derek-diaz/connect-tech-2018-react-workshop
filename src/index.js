@@ -3,45 +3,21 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {createStore, combineReducers} from 'redux';
+import {createStore, combineReducers,applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
 import puppyReducer from './redux/reducers/puppyReducers';
+import loading from './redux/reducers/loadingReducers';
 import availabilityFilterReducer from './redux/reducers/availabilityFilterReducers';
-import {createPuppy, adoptPuppy} from "./redux/actions/puppyActions";
-import {updateFilter} from "./redux/actions/availabilityFilterActions";
-
-ReactDOM.render(<App/>, document.getElementById('root'));
+import { Provider } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.css';
 
 // Create the store
+const store = createStore(combineReducers({puppyReducer, availabilityFilterReducer, loading}), applyMiddleware(thunk));
 
-const store = createStore(combineReducers({puppyReducer, availabilityFilterReducer}));
-
-// Log the initial state - notice the different shape
-console.log(store.getState());
-
-// Dispatch actions to create a puppies
-store.dispatch(createPuppy({
-    name: 'Priscilla Queen',
-    breed: 'Australian Shepherd',
-    available: true,
-    id: 1
-}));
-
-store.dispatch(createPuppy({
-    name: 'Sean Connery',
-    breed: 'Scottish Terrier',
-    available: true,
-    id: 2
-}));
-
-// Check that the state updated
-console.log(store.getState());
-
-store.dispatch(adoptPuppy(2));
-
-store.dispatch(updateFilter('SHOW_AVAILABLE'));
-
-// Check that the state updated
-console.log(store.getState());
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
