@@ -9,23 +9,23 @@ class PuppyListContainer extends Component {
     }
 
     render() {
-        const { fetchPuppies, ...rest } = this.props
+        const { fetchPuppies, ...rest } = this.props;
         return <PuppyList {...rest} />
     }
 }
 
 const mapStateToProps = (state) => {
     return {
-        puppies: state.puppies,
+        puppies: state.puppyReducer,
         loading: state.loading.loading,
     }
-};
+}
 
 const mapDispatchToProps = (dispatch) => {
     return {
         adoptPuppy: (id) => { dispatch(adoptPuppy(id)) },
         fetchPuppies: () => { dispatch(fetchPuppies()) },
     }
-};
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(PuppyListContainer)
